@@ -20,8 +20,11 @@ class WebCrawler:
         for base_url in self.base_urls:
             self._crawl_single_site(base_url, max_depth)
 
+    def crawl_from_base_urls(self, base_urls, max_depth=3):
+        for base_url in base_urls:
+            self._crawl_single_site(base_url, max_depth)
+
     def _crawl_single_site(self, base_url, max_depth):
-       
         if max_depth == 0:
             return
 
@@ -32,7 +35,7 @@ class WebCrawler:
             response = requests.get(base_url)
             if response.status_code == 200:
                 self.visited_urls.add(base_url)
-                self.parse_page(response.content)
+                self.parse_page(response.content, base_url)
                 soup = BeautifulSoup(response.content, 'html.parser')
                 for link in soup.find_all('a', href=True):
                     next_url = urljoin(base_url, link['href'])
@@ -40,10 +43,10 @@ class WebCrawler:
         except Exception as e:
             print(f"Error crawling {base_url}: {e}")
 
-    def parse_page(self, content):
+    def parse_page(self, content, base_url):
         soup = BeautifulSoup(content, 'html.parser')
         for img_tag in soup.find_all('img'):
-            img_url = urljoin(self.base_url, img_tag['src'])
+            img_url = urljoin(base_url, img_tag['src'])
             self.download_image(img_url)
 
         text = soup.get_text()
