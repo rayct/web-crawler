@@ -1,0 +1,14 @@
+= A basic implementation of a web crawler in Python.
+
+== This crawler will retrieve both images and text from a given webpage.
+
+
+
+
+---
+
+**Documentaion by:** Raymond C. TURNER
+
+**Revision:** May 1st, 2024
+
+**codestak.io**

@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# VSCODE
+.vscode
+
+# MAC Files
+.DS_Store
+
 # Distribution / packaging
 .Python
 build/
@@ -120,6 +126,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+web_crawler.venv
 .env
 .venv
 env/
