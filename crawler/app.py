@@ -70,5 +70,3 @@ class WebCrawler:
             print("Text content saved.")
         except Exception as e:
             print(f"Error saving text content: {e}")
-
-
