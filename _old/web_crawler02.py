@@ -20,6 +20,10 @@ class WebCrawler:
         for base_url in self.base_urls:
             self._crawl_single_site(base_url, max_depth)
 
+    def crawl_from_base_urls(self, base_urls, max_depth=3):
+        for base_url in base_urls:
+            self._crawl_single_site(base_url, max_depth)
+
     def _crawl_single_site(self, base_url, max_depth):
         if max_depth == 0:
             return

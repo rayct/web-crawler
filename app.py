@@ -2,14 +2,12 @@
 from crawler.web_crawler import WebCrawler
 
 def main():
-    # Instantiate the WebCrawler
-    crawler = WebCrawler()
+    # Instantiate the WebCrawler with the URL file
+    url_file = "urls.txt"
+    crawler = WebCrawler(url_file)
 
-    # Specify the base URLs to crawl
-    base_urls = ["https://rayturner.dev", "https://tailoredscaffolding.co.uk"]
-
-    # Start crawling from the specified URLs
-    crawler.crawl_from_urls(base_urls)
+    # Start crawling
+    crawler.crawl()
 
 if __name__ == "__main__":
     main()
