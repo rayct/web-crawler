@@ -1,3 +1,2 @@
-# urls.txt
 https://rayturner.dev
 
